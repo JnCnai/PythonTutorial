@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Tutorial: Building a Student Information Form - GFG Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .gfg-header {
+            background-color: #0f172a;
+            border-bottom: 3px solid #16a34a;
+        }
+        .gfg-nav-link:hover {
+            color: #22c55e;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .comment { color: #64748b; }
+        .keyword { color: #f43f5e; }
+        .builtin { color: #38bdf8; }
+        .string { color: #4ade80; }
+        .variable { color: #c084fc; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+    <header class="gfg-header text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl font-black tracking-wider text-green-500">&lt;/&gt;</span>
+                <span class="text-xl font-bold tracking-tight">PythonHub <span class="text-xs text-green-400 uppercase tracking-widest font-semibold bg-green-950 px-2 py-0.5 rounded ml-1 border border-green-800">Tutorials</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="#" class="gfg-nav-link text-gray-300 transition-colors">Python Basics</a>
+                <a href="#" class="gfg-nav-link text-gray-300 transition-colors">Input & Output</a>
+                <a href="#" class="gfg-nav-link text-gray-300 transition-colors">Data Types</a>
+                <a href="#cta-section" class="gfg-nav-link text-gray-300 transition-colors">Online Compiler</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Sidebar Navigation -->
+            <aside class="hidden lg:block lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 sticky top-24">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Table of Contents</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#intro" class="text-slate-700 hover:text-green-600 font-medium block transition-colors">1. Introduction</a></li>
+                        <li><a href="#complete-code" class="text-slate-700 hover:text-green-600 font-medium block transition-colors">2. Full Program Code</a></li>
+                        <li><a href="#step-by-step" class="text-slate-700 hover:text-green-600 font-medium block transition-colors">3. Step-by-Step Breakdown</a>
+                            <ul class="pl-4 mt-2 space-y-2 text-xs text-slate-500">
+                                <li><a href="#step1" class="hover:text-green-600 block">Step 1: Greeting & Banner</a></li>
+                                <li><a href="#step2" class="hover:text-green-600 block">Step 2: Getting User Input</a></li>
+                                <li><a href="#step3" class="hover:text-green-600 block">Step 3: Formatting Output</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#cta-section" class="text-slate-700 hover:text-green-600 font-medium block transition-colors">4. Online Compiler</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Tutorial Article Body -->
+            <article class="lg:col-span-3 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-10">
+                
+                <!-- Title & Meta -->
+                <div class="border-b border-slate-100 pb-6 mb-6">
+                    <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Beginner Level</span>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 mb-2">Python Tutorial: Building a Student Information Form</h1>
+                    <p class="text-slate-500 text-sm">Last Updated: <span class="text-slate-700 font-medium">Today</span> | Read Time: <span class="text-slate-700 font-medium">6 mins</span></p>
+                </div>
+
+                <!-- Section 1: Introduction -->
+                <section id="intro" class="mb-8">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-3">1. Introduction</h2>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                        Learning how to receive input from a user and present it cleanly is a cornerstone of programming. In this tutorial, we break down a Python script designed to act as a <strong>Student Registration Portal</strong>. By the end of this guide, you will understand how basic printing, input capturing, and string formatting combine to build a complete interactive console program.
+                    </p>
+                </section>
+
+                <!-- Section 2: Complete Code Example -->
+                <section id="complete-code" class="mb-8">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-3">2. Full Program Code</h2>
+                    <p class="text-slate-700 mb-3 text-sm">Here is the full script we will be analyzing step-by-step:</p>
+                    
+                    <div class="rounded-xl overflow-hidden shadow-lg border border-slate-700 mb-4">
+                        <div class="bg-slate-900 px-4 py-2.5 flex items-center justify-between text-xs text-slate-400 border-b border-slate-800">
+                            <span class="font-mono">student_form.py</span>
+                            <span class="text-green-400 font-semibold">Python 3</span>
+                        </div>
+                        <pre class="code-block p-5 text-sm overflow-x-auto leading-relaxed"><code><span class="comment"># Student Information Form Tutorial</span>
+<span class="builtin">print</span>(<span class="string">"WELCOME TO THE STUDENT REGISTRATION PORTAL"</span>)
+
+<span class="comment"># Collecting user input</span>
+<span class="variable">student_name</span> <span class="keyword">=</span> <span class="builtin">input</span>(<span class="string">"Enter your full name: "</span>)
+<span class="variable">student_age</span> <span class="keyword">=</span> <span class="builtin">input</span>(<span class="string">"Enter your age: "</span>)
+<span class="variable">grade_level</span> <span class="keyword">=</span> <span class="builtin">input</span>(<span class="string">"Enter your grade or year level: "</span>)
+<span class="variable">school_name</span> <span class="keyword">=</span> <span class="builtin">input</span>(<span class="string">"Enter your school name: "</span>)
+<span class="variable">course_track</span> <span class="keyword">=</span> <span class="builtin">input</span>(<span class="string">"Enter your track or major: "</span>)
+
+<span class="comment"># Displaying the collected information</span>
+<span class="builtin">print</span>(<span class="string">"\n"</span> <span class="keyword">+</span> <span class="string">"="</span><span class="keyword">*</span><span class="number">40</span>)
+<span class="builtin">print</span>(<span class="string">"  STUDENT PROFILE SUCCESSFULLY CREATED"</span>)
+<span class="builtin">print</span>(<span class="string">"="</span><span class="keyword">+</span><span class="number">40</span>)
+<span class="builtin">print</span>(<span class="string">f"Name:         {student_name}"</span>)
+<span class="builtin">print</span>(<span class="string">f"Age:          {student_age}"</span>)
+<span class="builtin">print</span>(<span class="string">f"Grade/Level:  {grade_level}"</span>)
+<span class="builtin">print</span>(<span class="string">f"School:       {school_name}"</span>)
+<span class="builtin">print</span>(<span class="string">f"Track/Major:  {course_track}"</span>)
+<span class="builtin">print</span>(<span class="string">"="</span><span class="keyword">+</span><span class="number">40</span>)</code></pre>
+                    </div>
+                </section>
+
+                <!-- Section 3: Step-by-Step Tutorial Breakdown -->
+                <section id="step-by-step" class="mb-10">
+                    <h2 class="text-2xl font-bold text-slate-800 mb-6">3. Step-by-Step Tutorial Breakdown</h2>
+                    
+                    <!-- Step 1 -->
+                    <div id="step1" class="mb-6 p-5 bg-slate-50 rounded-xl border border-slate-200">
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-widest bg-green-100 px-2.5 py-1 rounded-md">Step 1</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">Displaying Banners with the <code class="text-green-700 font-mono">print()</code> Function</h3>
+                        <p class="text-slate-700 text-sm mb-3">
+                            The <code class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800 font-mono">print()</code> function <b>outputs text to the screen</b>. At the start of our program, we use it to greet users and display a clear header for our registration portal:
+                        </p>
+                        <div class="bg-slate-900 text-slate-200 p-3 rounded-lg font-mono text-xs mb-2">
+                            <span class="builtin">print</span>(<span class="string">"WELCOME TO THE STUDENT REGISTRATION PORTAL"</span>)
+                        </div>
+                        <p class="text-xs text-slate-500">This sets a clean interface standard for anyone executing the script.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div id="step2" class="mb-6 p-5 bg-slate-50 rounded-xl border border-slate-200">
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-widest bg-green-100 px-2.5 py-1 rounded-md">Step 2</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">Capturing Runtime Data with the <code class="text-green-700 font-mono">input()</code> Function</h3>
+                        <p class="text-slate-700 text-sm mb-3">
+                            To collect personal details, we assign variables to the result of the <code class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800 font-mono">input()</code> method. Python pauses execution, prints your prompt string, and waits for keyboard entry:
+                        </p>
+                        <div class="bg-slate-900 text-slate-200 p-3 rounded-lg font-mono text-xs mb-2">
+                            <span class="variable">student_name</span> <span class="keyword">=</span> <span class="builtin">input</span>(<span class="string">"Enter your full name: "</span>)
+                        </div>
+                        <p class="text-xs text-slate-500">Whatever the user types is safely stored inside the <code class="font-mono text-slate-700">student_name</code> variable as a string.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div id="step3" class="mb-6 p-5 bg-slate-50 rounded-xl border border-slate-200">
+                        <span class="text-xs font-bold text-green-600 uppercase tracking-widest bg-green-100 px-2.5 py-1 rounded-md">Step 3</span>
+                        <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">Formatting Output using <code class="text-green-700 font-mono">f-strings</code> and Operators</h3>
+                        <p class="text-slate-700 text-sm mb-3">
+                            Once variables are collected, we use string multiplication (<code class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800 font-mono">'='*40</code>) to draw borders, and <strong>f-strings</strong> (prefixed with <code class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800 font-mono">f</code>) to inject variable values dynamically:
+                        </p>
+                        <div class="bg-slate-900 text-slate-200 p-3 rounded-lg font-mono text-xs mb-2">
+                            <span class="builtin">print</span>(<span class="string">f"Name:         {student_name}"</span>)
+                        </div>
+                        <p class="text-xs text-slate-500">The curly braces <code class="font-mono text-slate-700">{student_name}</code> get evaluated and replaced with the user's actual typed input upon printing.</p>
+                    </div>
+                </section>
+
+                <!-- Section 4: Call to Action Section with "Give it a try!" Button -->
+                <section id="cta-section" class="pt-8 border-t border-slate-200 text-center bg-gradient-to-b from-slate-50 to-green-50/40 p-8 rounded-2xl border border-dashed border-green-300">
+                    <span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Interactive Practice</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-3">Ready to Test Your Code?</h2>
+                    <p class="text-slate-600 text-sm max-w-xl mx-auto mb-6">
+                        Copy the script above, head over to the online compiler, and run it yourself to see your personalized student registration profile generated in real-time! Or click the link below to give it a try!
+                    </p>
+                    <a href="https://www.programiz.com/online-compiler/4etVHvbx98M97" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 space-x-3">
+                        <span>Give it a try!</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                    <p class="text-xs text-slate-400 mt-3">Links directly to your external Programiz compiler instance.</p>
+                </section>
+
+            </article>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div>
+                <div class="flex items-center space-x-2 text-white font-bold text-lg mb-2">
+                    <span class="text-green-500">&lt;/&gt;</span>
+                    <span>PythonHub Tutorials</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Empowering students and aspiring software developers worldwide with high-quality, practical Python programming concepts and interactive learning tools.
+                </p>
+            </div>
+            <div class="text-sm md:text-center space-x-6">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
+                <a href="#" class="hover:text-white transition-colors">Contact Support</a>
+            </div>
+            <div class="md:text-right text-xs text-slate-400">
+                <p class="font-semibold text-slate-300">Built for Python Learners</p>
+                <p class="mt-1">&copy; 2026 PythonHub Tutorials. All rights reserved.</p>
+                <p class="mt-1 text-green-400 font-medium">Hosted on Netlify</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
